@@ -15,12 +15,14 @@ body {
     top: 0;
     left: 0;
     width: 100%;
+    z-index: 1000;
     background-color: black;
     color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 6px 40px;
+
 }
 
 #logo img {
