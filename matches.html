@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matches</title>
+    <link rel="stylesheet" href="./styles/style.css">
+    <style>
+    
+    *{
+        padding: 0px;
+        margin: 0px;
+        box-sizing: border-box;
+    }
+    /*
+    some body styles overwrite in style.css because it effect the matches page ==== 
+    */
+    body::before {
+        display: initial !important;
+    }
+    body {
+      padding-bottom: 0px !important;  
+    }
+
+    .container {
+        font-family:  'Poppins', sans-serif;
+        background-color: #121212; 
+        color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+    }
+    
+   
+    .matches-section {
+        width: 100%;
+        max-width: 600px;
+        padding: 20px;
+    }
+    
+    .section-title {
+        text-align: center;
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        color: #e0e0e0;
+    }
+    
+    #matches-container {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .match-card {
+        background-color: #1e1e1e;
+        border-radius: 12px;
+        padding: 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid #333;
+    }
+    
+    .team {
+        flex: 1; /* Each team takes equal space */
+        text-align: center;
+        font-size: 16px;
+        font-weight: 500;
+    }
+    
+    .team.home-team {
+        text-align: left;
+    }
+    
+    .team.away-team {
+        text-align: right;
+    }
+    
+    .match-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 20px;
+    }
+    
+    .score {
+        font-size: 28px;
+        font-weight: bold;
+        letter-spacing: 2px;
+    }
+    
+    .match-status {
+        font-size: 12px;
+        color: #aaa;
+        margin-top: 4px;
+        background-color: #333;
+        padding: 2px 8px;
+        border-radius: 8px;
+    }</style>
+</head>
+<body>
+    
+    <nav class="navbar">
+        <div id="logo"><a href="#"><img src="imgs/Selection.png" alt=""></a></div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Standings</a></li>
+            <li><a href="players.html">Players</a></li>
+            <li><a href="matches.html">Matches</a></li>
+        </ul>
+        <ul class="right-links">
+            <li><a href="#"><i class="fa-solid fa-cloud"></i> Weather</a></li>
+            <li><a href="#"><i class="fa-solid fa-dollar-sign"></i> Exchange Rates</a></li>
+        </ul>
+
+    </nav>
+    <div class="container">
+        <section class="matches-section">
+            <h2 class="section-title">Matches</h2>
+            <div id="matches-container">
+                <p id="loading-message">Loading matches...</p> 
+            </div>
+        </section>
+    </div>
+
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const matchesContainer = document.getElementById('matches-container');
+        const loadingMessage = document.getElementById('loading-message');
+    
+
+        const API_KEY = 'fb5aa072ab5c4ee6b74ed9a423d9c302';
+        const PROXY_URL = 'https://cors-anywhere.herokuapp.com/';  
+        const API_URL = 'https://api.football-data.org/v4/matches';
+    
+        // --- Function to fetch data from the API ---
+        async function fetchMatches() {
+            try {
+                const response = await fetch(PROXY_URL+ API_URL, {
+                    method: 'GET',
+                    headers: {
+                        'X-Auth-Token': API_KEY,
+                        'X-Requested-With': 'XMLHttpRequest' 
+                    }
+                });
+    
+                // Check if the request was successful
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+    
+                const data = await response.json();
+                
+                loadingMessage.style.display = 'none';
+    
+                renderMatches(data.matches);
+    
+            } catch (error) {
+                console.error("Could not fetch matches:", error);
+                loadingMessage.textContent = 'Failed to load matches. Please try again later.';
+                loadingMessage.style.color = 'red';
+            }
+        }
+    
+        // --- Function to generate and display all match cards ---
+        function renderMatches(matchesData) {
+            matchesContainer.innerHTML = '';
+    
+            if (matchesData.length === 0) {
+                matchesContainer.innerHTML = '<p>No matches scheduled for today.</p>';
+                return;
+            }
+    
+            matchesData.forEach(match => {
+                const matchCard = document.createElement('div');
+                matchCard.classList.add('match-card');
+                
+                const homeScore = match.score.fullTime.home ?? '-';
+                const awayScore = match.score.fullTime.away ?? '-';
+                
+                let statusText = match.status;
+                if (statusText === 'SCHEDULED') {
+                    const time = new Date(match.utcDate).toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+                    statusText = time;
+                } else if (statusText === 'FINISHED') {
+                    statusText = 'FT';
+                }
+    
+                matchCard.innerHTML = `
+                    <div class="team home-team">${match.homeTeam.name}</div>
+                    <div class="match-info">
+                        <div class="score">${homeScore} : ${awayScore}</div>
+                        <div class="match-status">${statusText}</div>
+                    </div>
+                    <div class="team away-team">${match.awayTeam.name}</div>
+                `;
+    
+                matchesContainer.appendChild(matchCard);
+            });
+        }
+    
+        fetchMatches();
+    });
+    </script>
+</body>
+</html>
