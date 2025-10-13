@@ -121,90 +121,74 @@
         <section class="matches-section">
             <h2 class="section-title">Matches</h2>
             <div id="matches-container">
-                <p id="loading-message">Loading matches...</p> 
+                
             </div>
         </section>
     </div>
 
 
     <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const matchesContainer = document.getElementById('matches-container');
-        const loadingMessage = document.getElementById('loading-message');
-    
+// Wait for the HTML document to be fully loaded
+document.addEventListener('DOMContentLoaded', () => {
 
-        const API_KEY = 'fb5aa072ab5c4ee6b74ed9a423d9c302';
-        const PROXY_URL = 'https://cors-anywhere.herokuapp.com/';  
-        const API_URL = 'https://api.football-data.org/v4/matches';
-    
-        // --- Function to fetch data from the API ---
-        async function fetchMatches() {
-            try {
-                const response = await fetch(PROXY_URL+ API_URL, {
-                    method: 'GET',
-                    headers: {
-                        'X-Auth-Token': API_KEY,
-                        'X-Requested-With': 'XMLHttpRequest' 
-                    }
-                });
-    
-                // Check if the request was successful
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-    
-                const data = await response.json();
-                
-                loadingMessage.style.display = 'none';
-    
-                renderMatches(data.matches);
-    
-            } catch (error) {
-                console.error("Could not fetch matches:", error);
-                loadingMessage.textContent = 'Failed to load matches. Please try again later.';
-                loadingMessage.style.color = 'red';
-            }
+    // Sample data for the matches. You could get this from an API later.
+    const matchesData = [
+        {
+            homeTeam: 'Team A',
+            awayTeam: 'Team B',
+            homeScore: 2,
+            awayScore: 1,
+            status: 'FT' // Full Time
+        },
+        {
+            homeTeam: 'Team C',
+            awayTeam: 'Team D',
+            homeScore: 0,
+            awayScore: 0,
+            status: "18:00" // Kick-off time
+        },
+        {
+            homeTeam: 'Team E',
+            awayTeam: 'Team F',
+            homeScore: 1,
+            awayScore: 1,
+            status: "LIVE" // Live match
         }
-    
-        // --- Function to generate and display all match cards ---
-        function renderMatches(matchesData) {
-            matchesContainer.innerHTML = '';
-    
-            if (matchesData.length === 0) {
-                matchesContainer.innerHTML = '<p>No matches scheduled for today.</p>';
-                return;
-            }
-    
-            matchesData.forEach(match => {
-                const matchCard = document.createElement('div');
-                matchCard.classList.add('match-card');
-                
-                const homeScore = match.score.fullTime.home ?? '-';
-                const awayScore = match.score.fullTime.away ?? '-';
-                
-                let statusText = match.status;
-                if (statusText === 'SCHEDULED') {
-                    const time = new Date(match.utcDate).toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
-                    statusText = time;
-                } else if (statusText === 'FINISHED') {
-                    statusText = 'FT';
-                }
-    
-                matchCard.innerHTML = `
-                    <div class="team home-team">${match.homeTeam.name}</div>
-                    <div class="match-info">
-                        <div class="score">${homeScore} : ${awayScore}</div>
-                        <div class="match-status">${statusText}</div>
-                    </div>
-                    <div class="team away-team">${match.awayTeam.name}</div>
-                `;
-    
-                matchesContainer.appendChild(matchCard);
-            });
-        }
-    
-        fetchMatches();
-    });
+    ];
+
+    // Find the container element in the HTML
+    const matchesContainer = document.getElementById('matches-container');
+
+    // Function to generate and display all match cards
+    function renderMatches() {
+        // Clear any existing content
+        matchesContainer.innerHTML = '';
+
+        // Loop through each match in our data array
+        matchesData.forEach(match => {
+            // Create a new div element for the match card
+            const matchCard = document.createElement('div');
+            matchCard.classList.add('match-card');
+
+            // Set the inner HTML of the card using the match data
+            matchCard.innerHTML = `
+                <div class="team home-team">${match.homeTeam}</div>
+                <div class="match-info">
+                    <div class="score">${match.homeScore} : ${match.awayScore}</div>
+                    <div class="match-status">${match.status}</div>
+                </div>
+                <div class="team away-team">${match.awayTeam}</div>
+            `;
+
+            // Add the newly created card to the container
+            matchesContainer.appendChild(matchCard);
+        });
+    }
+
+    // Call the function to display the matches when the page loads
+    renderMatches();
+
+});
     </script>
 </body>
 </html>
