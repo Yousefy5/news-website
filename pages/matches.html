@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Matches</title>
+    <link rel="stylesheet" href="../styles/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+    <style>
+      * {
+        padding: 0px;
+        margin: 0px;
+        box-sizing: border-box;
+      }
+      /*
+    some body styles overwrite in style.css because it effect the matches page ==== 
+    */
+      body::before {
+        display: initial !important;
+      }
+      body {
+        padding-bottom: 0px !important;
+      }
+
+      .container {
+        font-family: "Poppins", sans-serif;
+        background-color: #121212;
+        color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+      }
+
+      .matches-section {
+        width: 100%;
+        max-width: 600px;
+        padding: 20px;
+      }
+
+      .section-title {
+        text-align: center;
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        color: #e0e0e0;
+      }
+
+      #matches-container {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .match-card {
+        background-color: #1e1e1e;
+        border-radius: 12px;
+        padding: 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid #333;
+      }
+
+      .team {
+        flex: 1; /* Each team takes equal space */
+        text-align: center;
+        font-size: 16px;
+        font-weight: 500;
+      }
+
+      .team.home-team {
+        text-align: left;
+      }
+
+      .team.away-team {
+        text-align: right;
+      }
+
+      .match-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 20px;
+      }
+
+      .score {
+        font-size: 28px;
+        font-weight: bold;
+        letter-spacing: 2px;
+      }
+
+      .match-status {
+        font-size: 12px;
+        color: #aaa;
+        margin-top: 4px;
+        background-color: #333;
+        padding: 2px 8px;
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div id="logo">
+        <a href="#"><img src="../imgs/Selection.png" alt="" /></a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="stats.html">Standings</a></li>
+        <li><a href="players.html">Players</a></li>
+        <li><a href="matches.html">Matches</a></li>
+      </ul>
+      <ul class="right-links">
+        <li>
+          <a href="#"><i class="fa-solid fa-cloud"></i> Weather</a>
+        </li>
+        <li>
+          <a href="#"><i class="fa-solid fa-dollar-sign"></i> Exchange Rates</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="container">
+      <section class="matches-section">
+        <h2 class="section-title">Matches</h2>
+        <div id="matches-container"></div>
+      </section>
+    </div>
+
+    <footer class="footer">
+      <ul class="left-footer">
+        <li><a href="#">News Sections</a></li>
+        <li><a href="#">Soccer Info</a></li>
+        <li><a href="#">More</a></li>
+      </ul>
+      <ul class="right-footer">
+        <li>
+          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+        </li>
+        <li>
+          <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        </li>
+        <li>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        </li>
+        <li>
+          <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+        </li>
+      </ul>
+    </footer>
+
+    <script>
+      // Wait for the HTML document to be fully loaded
+      document.addEventListener("DOMContentLoaded", () => {
+        // Sample data for the matches. You could get this from an API later.
+        const matchesData = [
+          {
+            homeTeam: "Man City",
+            awayTeam: "Arsenal",
+            homeScore: 2,
+            awayScore: 1,
+            status: "LIVE", // Live Match
+          },
+          {
+            homeTeam: "Spurs",
+            awayTeam: "Man Utd",
+            homeScore: 0,
+            awayScore: 0,
+            status: "18:00", // Kick-off time
+          },
+          {
+            homeTeam: "Real Madrid",
+            awayTeam: "Barca",
+            homeScore: 1,
+            awayScore: 1,
+            status: "FT", // Full Time
+          },
+          {
+            homeTeam: "Chelsea",
+            awayTeam: "Liverpool",
+            homeScore: 0,
+            awayScore: 0,
+            status: "19:00", // Kick-off time
+          },
+        ];
+
+        // Find the container element in the HTML
+        const matchesContainer = document.getElementById("matches-container");
+
+        // Function to generate and display all match cards
+        function renderMatches() {
+          // Clear any existing content
+          matchesContainer.innerHTML = "";
+
+          // Loop through each match in our data array
+          matchesData.forEach((match) => {
+            // Create a new div element for the match card
+            const matchCard = document.createElement("div");
+            matchCard.classList.add("match-card");
+
+            // Set the inner HTML of the card using the match data
+            matchCard.innerHTML = `
+                <div class="team home-team">${match.homeTeam}</div>
+                <div class="match-info">
+                    <div class="score">${match.homeScore} : ${match.awayScore}</div>
+                    <div class="match-status">${match.status}</div>
+                </div>
+                <div class="team away-team">${match.awayTeam}</div>
+            `;
+
+            // Add the newly created card to the container
+            matchesContainer.appendChild(matchCard);
+          });
+        }
+
+        // Call the function to display the matches when the page loads
+        renderMatches();
+      });
+    </script>
+  </body>
+</html>

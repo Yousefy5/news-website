@@ -7,8 +7,6 @@
 body {
     font-family: 'Poppins', sans-serif;
     padding-bottom: 70px;
-    background-color: black;
-    color: white;
 }
 
 /* -------------------- Nav -------------------- */
@@ -17,12 +15,14 @@ body {
     top: 0;
     left: 0;
     width: 100%;
+    z-index: 1000;
     background-color: black;
     color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 6px 40px;
+
 }
 
 #logo img {
@@ -105,110 +105,4 @@ body::before {
     color: #6583fb; 
 }
 
-/* -------------------- Layout -------------------- */
-.layout {
-    display: flex;
-}
-
-aside {
-    width: 20%;
-    padding: 20px;
-    margin: 2px 0;
-}
-
-.main {
-    background-color: black;
-    color: white;
-    width: 80%;
-    padding: 20px;
-    margin: 2px 0;
-}
-
-.weather-update ,
-.exchange-rates {
-    background-color: #1e2128;
-    padding: 30px 30px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-}
-
-.weather-update p {
-    color: #bdc1ca;
-    padding-top: 20px;
-}
-
-.weather-update p i {
-    color: #6583fb;
-}
-
-#degree {
-    font-weight: bolder;
-    color: #f3f4f6;
-    font-size: 20px;
-}
-
-.exchange-rates h3 {
-    margin-bottom: 20px;
-}
-
-.exchange-row {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 0;
-    border-bottom: 1px solid #444;
-}
-
-.exchange-row:last-child {
-    border-bottom: none;
-}
-
-.currency {
-    font-weight: 500;
-}
-
-.rate {
-    color: #bdc1ca;
-    font-weight: bold;
-}
-
-header {
-    background-color: #02104b;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 15px;
-}
-
-.left-content,
-.right-content {
-    padding: 60px 30px;
-}
-
-.left-content h1 {
-    font-size: 40px;
-}
-
-.left-content p {
-    margin: 15px 0;
-    color: #bdc1ca;
-}
-
-.left-content button {
-    padding: 12px 25px;
-    background-color: #6583fb;
-    color: white;
-    border-radius: 5px;
-    border-style: none;
-    font-weight: 700;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.left-content button:hover {
-    background-color: #3a55c0;
-}
-
-.right-content img {
-    border-radius: 10px;
-}
 

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Football and News Website</title>
+    <link rel="stylesheet" href="../styles/stats.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div id="logo">
+        <a href="#"><img src="../imgs/Selection.png" alt="" /></a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="stats.html">Standings</a></li>
+        <li><a href="players.html">Players</a></li>
+        <li><a href="matches.html">Matches</a></li>
+      </ul>
+      <ul class="right-links">
+        <li>
+          <a href="#"><i class="fa-solid fa-cloud"></i> Weather</a>
+        </li>
+        <li>
+          <a href="#"><i class="fa-solid fa-dollar-sign"></i> Exchange Rates</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="layout">
+      <aside class="side-bar">
+        <div class="live-matches">
+          <h3>LIVE MATCHES</h3>
+          <div class="matches-row">
+            <span class="live-match">Man City vs Arsenal</span>
+            <span class="live-rate">LIVE</span>
+          </div>
+          <div class="matches-row">
+            <span class="match">Chelsea vs Liverpool</span>
+            <span class="rate">19:00</span>
+          </div>
+          <div class="matches-row">
+            <span class="live-match">Spurs vs Man Utd</span>
+            <span class="live-rate">LIVE</span>
+          </div>
+          <div class="matches-row">
+            <span class="live-match">Real Madrid vs Barca</span>
+            <span class="live-rate">LIVE</span>
+          </div>
+          <div class="matches-row">
+            <span class="match">Bayern vs Dortmund</span>
+            <span class="rate">22:00</span>
+          </div>
+        </div>
+        <div class="top-players">
+                <h3>TOP PLAYERS</h3>
+                <div class="top-players-row">
+                    <span class="top-player">Mohamed Salah</span>
+                    <span class="top-goal">29 GOAL</span>
+                </div>
+                <div class="top-players-row">
+                    <span class="player">Alexander Isak</span>
+                    <span class="goal">23 GOAL</span>
+                </div>
+                <div class="top-players-row">
+                    <span class="player">Erling Haaland</span>
+                    <span class="goal">22 GOAL</span>
+                </div>
+                <div class="top-players-row">
+                    <span class="player">Bryan Mbeumo</span>
+                    <span class="goal">20 GOAL</span>
+                </div>
+                <div class="top-players-row">
+                    <span class="player">Chris Wood</span>
+                    <span class="goal">20 GOAL</span>
+                </div>
+            </div>
+      </aside>
+      
+      <div class="main">
+        <header>
+          <div class="left-content">
+            <h1>Soccer League Standings</h1>
+            <p>
+              Track your favorite teams' performance throughout the season with
+              detailed rankings and statistics.
+            </p>
+            <br><br>
+            <div class="League-Selector">
+                <h3>Select League / Season</h3>
+                <p>View standings for different competitions.</p>
+                <select class="league-select-input">
+                    <option>Premier League 2025/2026</option>
+                    <option>La Liga 2025/2026</option>
+                    <option>Serie A 2025/2026</option>
+                    <option>Bundesliga 2025/2026</option>
+                    <option>Ligue 1 2025/2026</option>
+                </select>
+            </div>
+            <br><br>
+            <div class="standing-container">
+              <table class="standing-table">
+                <tr class="standing-main-row">
+                  <th class="standing-elements">Rank</th>
+                  <th class="standing-team">Team</th>
+                  <th class="standing-elements">Played</th>
+                  <th class="standing-elements">Wins</th>
+                  <th class="standing-elements">Draws</th>
+                  <th class="standing-elements">Losses</th>
+                  <th class="standing-elements">GF</th>
+                  <th class="standing-elements">GA</th>
+                  <th class="standing-elements">GD</th>
+                </tr>
+                <tr class="standing-rows">
+                  <td class="standing-elements">1</td>
+                  <td class="standing-team">Manchester City</td>
+                  <td class="standing-elements">38</td>
+                  <td class="standing-elements">28</td>
+                  <td class="standing-elements">7</td>
+                  <td class="standing-elements">3</td>
+                  <td class="standing-elements">96</td>
+                  <td class="standing-elements">43</td>
+                  <td class="standing-elements">62</td>
+                </tr>
+                <tr class="standing-rows">
+                  <td class="standing-elements">2</td>
+                  <td class="standing-team">Arsenal</td>
+                  <td class="standing-elements">38</td>
+                  <td class="standing-elements">27</td>
+                  <td class="standing-elements">5</td>
+                  <td class="standing-elements">6</td>
+                  <td class="standing-elements">91</td>
+                  <td class="standing-elements">29</td>
+                  <td class="standing-elements">62</td>
+                </tr>
+                <tr class="standing-rows">
+                  <td class="standing-elements">3</td>
+                  <td class="standing-team">Liverpool</td>
+                  <td class="standing-elements">38</td>
+                  <td class="standing-elements">24</td>
+                  <td class="standing-elements">10</td>
+                  <td class="standing-elements">4</td>
+                  <td class="standing-elements">86</td>
+                  <td class="standing-elements">41</td>
+                  <td class="standing-elements">45</td>
+                </tr>
+                <tr class="standing-rows">
+                  <td class="standing-elements">4</td>
+                  <td class="standing-team">Aston Villa</td>
+                  <td class="standing-elements">38</td>
+                  <td class="standing-elements">20</td>
+                  <td class="standing-elements">8</td>
+                  <td class="standing-elements">10</td>
+                  <td class="standing-elements">76</td>
+                  <td class="standing-elements">46</td>
+                  <td class="standing-elements">30</td>
+                </tr>
+                <tr class="standing-rows">
+                  <td class="standing-elements">5</td>
+                  <td class="standing-team">Tottenham Hotspur</td>
+                  <td class="standing-elements">38</td>
+                  <td class="standing-elements">20</td>
+                  <td class="standing-elements">6</td>
+                  <td class="standing-elements">12</td>
+                  <td class="standing-elements">74</td>
+                  <td class="standing-elements">74</td>
+                  <td class="standing-elements">13</td>
+                </tr>
+                <tr class="standing-rows">
+                  <td class="standing-elements">6</td>
+                  <td class="standing-team">Chelsea</td>
+                  <td class="standing-elements">38</td>
+                  <td class="standing-elements">18</td>
+                  <td class="standing-elements">9</td>
+                  <td class="standing-elements">11</td>
+                  <td class="standing-elements">77</td>
+                  <td class="standing-elements">63</td>
+                  <td class="standing-elements">14</td>
+                </tr>
+                <tr class="standing-rows">
+                  <td class="standing-elements">7</td>
+                  <td class="standing-team">Newcastle United</td>
+                  <td class="standing-elements">38</td>
+                  <td class="standing-elements">18</td>
+                  <td class="standing-elements">6</td>
+                  <td class="standing-elements">14</td>
+                  <td class="standing-elements">85</td>
+                  <td class="standing-elements">62</td>
+                  <td class="standing-elements">23</td>
+                </tr>
+              </table>
+            </div>
+            
+            </div>
+          </div>
+        </header>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <ul class="left-footer">
+        <li><a href="#">News Sections</a></li>
+        <li><a href="#">Soccer Info</a></li>
+        <li><a href="#">More</a></li>
+      </ul>
+      <ul class="right-footer">
+        <li>
+          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+        </li>
+        <li>
+          <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        </li>
+        <li>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        </li>
+        <li>
+          <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+        </li>
+      </ul>
+    </footer>
+  </body>
+</html>
