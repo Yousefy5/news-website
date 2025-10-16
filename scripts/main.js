@@ -1,4 +1,7 @@
-const weatherApiKey = '63d170ac45fd5f854dccd64a1318256b';
+import dotenv from "dotenv";
+dotenv.config();
+
+const weatherApiKey = process.env.OPENWEATHER_KEY;
 const cityValue = document.getElementById("city");
 const countryValue = document.getElementById("country")
 const tempValue = document.getElementById("degree");
