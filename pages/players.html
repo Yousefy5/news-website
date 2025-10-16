@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Football and News Website</title>
+    <title>Football Players</title>
     <link rel="stylesheet" href="../styles/style.css">
     <link rel="stylesheet" href="../styles/players.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
 <body>
     <nav class="navbar">
-    <div id="logo"><a href="#"><img src="../imgs/Selection.png" alt=""></a></div>
+        <div id="logo"><a href="#"><img src="../imgs/Selection.png" alt=""></a></div>
         <ul class="nav-links">
             <li><a href="../index.html">Home</a></li>
             <li><a href="stats.html">Standings</a></li>
@@ -62,296 +62,31 @@
             <div class="filters">
                 <div class="search-box">
                     <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" placeholder="Search players...">
+                    <input id="searchInput" type="text" placeholder="Search players...">
                 </div>
-                <select>
-                    <option>Filter by Position</option>
-                    <option>Forward</option>
-                    <option>Midfielder</option>
-                    <option>Defender</option>
-                    <option>Goalkeeper</option>
+                <select id="positionFilter">
+                    <option value="">Filter by Position</option>
+                    <option value="Forward">Forward</option>
+                    <option value="Midfielder">Midfielder</option>
+                    <option value="Defender">Defender</option>
+                    <option value="Goalkeeper">Goalkeeper</option>
                 </select>
-                <select>
-                    <option>Filter by Team</option>
-                    <option>Manchester City</option>
-                    <option>Real Madrid</option>
-                    <option>Liverpool</option>
+                <select id="teamFilter">
+                    <option value="">Filter by Team</option>
                 </select>
-                <select>
-                    <option>Filter by Nationality</option>
-                    <option>Argentina</option>
-                    <option>Portugal</option>
-                    <option>France</option>
+                <select id="nationalityFilter">
+                    <option value="">Filter by Nationality</option>
                 </select>
-                <select>
-                    <option>Sort by</option>
-                    <option>Goals</option>
-                    <option>Assists</option>
-                    <option>Rating</option>
+                <select id="sortSelect">
+                    <option value="">Sort by</option>
+                    <option value="goals">Goals</option>
+                    <option value="assists">Assists</option>
+                    <option value="apps">Apps</option>
                 </select>
             </div>
 
-            <div class="players-grid">
-                <div class="player-card">
-                    <img src="https://i.namu.wiki/i/BB_iJkqScp03KHbbObV4z2uS1ROx1qNvj7hOemYKAuyrtfFxPx_s0DbVOwLo-7GJw6Dlt2wIU-iaqCiXqji_tw.webp" alt="Messi">
-                    <h3>Lionel Messi</h3>
-                    <span class="position forward">Forward</span>
-                    <div class="club">
-                        <i class="fa-solid fa-shield"></i>
-                        <span>Inter Miami CF</span>
-                    </div>
-                    <div class="stats">
-                        <div class="stat">
-                            <i class="fa-solid fa-futbol"></i>
-                            <span>71 Goals</span>
-                        </div>
-                        <div class="stat">
-                            <i class="fa-solid fa-handshake"></i>
-                            <span>38 Assists</span>
-                        </div>
-                        <div class="stat">
-                            <i class="fa-solid fa-chart-line"></i>
-                            <span>80 Apps</span>
-                        </div>
-                    </div>
-                    <div class="nationality">
-                        <span>🇦🇷</span>
-                        <span>Argentina</span>
-                    </div>
-                    <button class="view-btn">View Profile</button>
-                </div>
-
-                <div class="player-card">
-                    <img src="https://img.uefa.com/imgml/TP/players/2014/2025/cutoff/63706.webp" alt="Ronaldo">
-                    <h3>Cristiano Ronaldo</h3>
-                    <span class="position forward">Forward</span>
-                    <div class="club">
-                        <i class="fa-solid fa-shield"></i>
-                        <span>Al Nassr FC</span>
-                    </div>
-                    <div class="stats">
-                        <div class="stat">
-                            <i class="fa-solid fa-futbol"></i>
-                            <span>89 Goals</span>
-                        </div>
-                        <div class="stat">
-                            <i class="fa-solid fa-handshake"></i>
-                            <span>26 Assists</span>
-                        </div>
-                        <div class="stat">
-                            <i class="fa-solid fa-chart-line"></i>
-                            <span>95 Apps</span>
-                        </div>
-                    </div>
-                    <div class="nationality">
-                        <span>🇵🇹</span>
-                        <span>Portugal</span>
-                    </div>
-                    <button class="view-btn">View Profile</button>
-                </div>
-
-                <div class="player-card">
-                    <img src="https://publish.realmadrid.com/content/dam/portals/realmadrid-com/es-es/sports/football/3kq9cckrnlogidldtdie2fkbl/players/mbappe/assets/2025%20MBAPPE_550x650.png" alt="Mbappe">
-                    <h3>Kylian Mbappé</h3>
-                    <span class="position forward">Forward</span>
-                    <div class="club">
-                        <i class="fa-solid fa-shield"></i>
-                        <span>Paris Saint-Germain</span>
-                    </div>
-                    <div class="stats">
-                        <div class="stat">
-                            <i class="fa-solid fa-futbol"></i>
-                            <span>55 Goals</span>
-                        </div>
-                        <div class="stat">
-                            <i class="fa-solid fa-handshake"></i>
-                            <span>29 Assists</span>
-                        </div>
-                        <div class="stat">
-                            <i class="fa-solid fa-chart-line"></i>
-                            <span>70 Apps</span>
-                        </div>
-                    </div>
-                    <div class="nationality">
-                        <span>🇫🇷</span>
-                        <span>France</span>
-                    </div>
-                    <button class="view-btn">View Profile</button>
-                </div>
-
-                <div class="player-card">
-                    <img src="https://static.sky.it/editorialstaticimages/8c7fddf3f96943479e612f701c8a375a/sport/headshots/calcio/club/61366.png?im=Resize,width=270" alt="De Bruyne">
-                    <h3>Kevin De Bruyne</h3>
-                    <span class="position midfielder">Midfielder</span>
-                    <div class="club">
-                        <i class="fa-solid fa-shield"></i>
-                        <span>Manchester City</span>
-                    </div>
-                    <div class="stats">
-                        <div class="stat">
-                            <i class="fa-solid fa-futbol"></i>
-                            <span>30 Goals</span>
-                        </div>
-                        <div class="stat">
-                            <i class="fa-solid fa-handshake"></i>
-                            <span>60 Assists</span>
-                        </div>
-                        <div class="stat">
-                            <i class="fa-solid fa-chart-line"></i>
-                            <span>88 Apps</span>
-                        </div>
-                    </div>
-                    <div class="nationality">
-                        <span>🇧🇪</span>
-                        <span>Belgium</span>
-                    </div>
-                    <button class="view-btn">View Profile</button>
-                </div>
-
-                <div class="player-card">
-                    <img src="https://cdn-img.zerozero.pt/img/planteis/new/11/65/11531165_erling_haaland_20240816210107.png" alt="Haaland">
-                    <h3>Erling Haaland</h3>
-                    <span class="position forward">Forward</span>
-                    <div class="club">
-                        <i class="fa-solid fa-shield"></i>
-                        <span>Manchester City</span>
-                    </div>
-                    <div class="stats">
-                        <div class="stat">
-                            <i class="fa-solid fa-futbol"></i>
-                            <span>65 Goals</span>
-                        </div>
-                        <div class="stat">
-                            <i class="fa-solid fa-handshake"></i>
-                            <span>15 Assists</span>
-                        </div>
-                        <div class="stat">
-                            <i class="fa-solid fa-chart-line"></i>
-                            <span>50 Apps</span>
-                        </div>
-                    </div>
-                    <div class="nationality">
-                        <span>🇳🇴</span>
-                        <span>Norway</span>
-                    </div>
-                    <button class="view-btn">View Profile</button>
-                </div>
-
-                <div class="player-card">
-                    <img src="https://www.playmakerstats.com/img/jogadores/new/45/93/194593_virgil_van_dijk_20240816235026.png" alt="Van Dijk">
-                    <h3>Virgil van Dijk</h3>
-                    <span class="position defender">Defender</span>
-                    <div class="club">
-                        <i class="fa-solid fa-shield"></i>
-                        <span>Liverpool FC</span>
-                    </div>
-                    <div class="stats">
-                        <div class="stat">
-                            <i class="fa-solid fa-futbol"></i>
-                            <span>12 Goals</span>
-                        </div>
-                        <div class="stat">
-                            <i class="fa-solid fa-handshake"></i>
-                            <span>8 Assists</span>
-                        </div>
-                        <div class="stat">
-                            <i class="fa-solid fa-chart-line"></i>
-                            <span>90 Apps</span>
-                        </div>
-                    </div>
-                    <div class="nationality">
-                        <span>🇳🇱</span>
-                        <span>Netherlands</span>
-                    </div>
-                    <button class="view-btn">View Profile</button>
-                </div>
-
-                <div class="player-card">
-                    <img src="https://media.futbolfantasy.com/thumb/400x400/v202510081736/uploads/images/jugadores/ficha/8386.png" alt="Bellingham">
-                    <h3>Jude Bellingham</h3>
-                    <span class="position midfielder">Midfielder</span>
-                    <div class="club">
-                        <i class="fa-solid fa-shield"></i>
-                        <span>Real Madrid</span>
-                    </div>
-                    <div class="stats">
-                        <div class="stat">
-                            <i class="fa-solid fa-futbol"></i>
-                            <span>25 Goals</span>
-                        </div>
-                        <div class="stat">
-                            <i class="fa-solid fa-handshake"></i>
-                            <span>18 Assists</span>
-                        </div>
-                        <div class="stat">
-                            <i class="fa-solid fa-chart-line"></i>
-                            <span>45 Apps</span>
-                        </div>
-                    </div>
-                    <div class="nationality">
-                        <span>🇬🇧</span>
-                        <span>England</span>
-                    </div>
-                    <button class="view-btn">View Profile</button>
-                </div>
-
-                <div class="player-card">
-                    <img src="https://www.arsenal.com/sites/default/files/styles/large_16x9/public/images/SAKA_Headshot_web_mxqw4vma.png?h=ad73a5fe&auto=webp&itok=sF_7_QGZ" alt="Saka">
-                    <h3>Bukayo Saka</h3>
-                    <span class="position midfielder">Midfielder</span>
-                    <div class="club">
-                        <i class="fa-solid fa-shield"></i>
-                        <span>Arsenal FC</span>
-                    </div>
-                    <div class="stats">
-                        <div class="stat">
-                            <i class="fa-solid fa-futbol"></i>
-                            <span>18 Goals</span>
-                        </div>
-                        <div class="stat">
-                            <i class="fa-solid fa-handshake"></i>
-                            <span>22 Assists</span>
-                        </div>
-                        <div class="stat">
-                            <i class="fa-solid fa-chart-line"></i>
-                            <span>60 Apps</span>
-                        </div>
-                    </div>
-                    <div class="nationality">
-                        <span>🇬🇧</span>
-                        <span>England</span>
-                    </div>
-                    <button class="view-btn">View Profile</button>
-                </div>
-
-                <div class="player-card">
-                    <img src="https://assets.laliga.com/squad/2025/t186/p246333/2048x2225/p246333_t186_2025_1_001_000.png" alt="Vinicius">
-                    <h3>Vinicius Jr.</h3>
-                    <span class="position forward">Forward</span>
-                    <div class="club">
-                        <i class="fa-solid fa-shield"></i>
-                        <span>Real Madrid</span>
-                    </div>
-                    <div class="stats">
-                        <div class="stat">
-                            <i class="fa-solid fa-futbol"></i>
-                            <span>35 Goals</span>
-                        </div>
-                        <div class="stat">
-                            <i class="fa-solid fa-handshake"></i>
-                            <span>25 Assists</span>
-                        </div>
-                        <div class="stat">
-                            <i class="fa-solid fa-chart-line"></i>
-                            <span>75 Apps</span>
-                        </div>
-                    </div>
-                    <div class="nationality">
-                        <span>🇧🇷</span>
-                        <span>Brazil</span>
-                    </div>
-                    <button class="view-btn">View Profile</button>
-                </div>
+            <div class="players-grid" id="playersGrid">
+                <p>Loading players...</p>
             </div>
         </div>
     </div>
@@ -370,5 +105,6 @@
         </ul>
     </footer>
 
+    <script src="../scripts/players.js"></script>
 </body>
 </html>

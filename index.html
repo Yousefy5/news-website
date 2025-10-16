@@ -12,7 +12,7 @@
     <nav class="navbar">
         <div id="logo"><a href="#"><img src="imgs/Selection.png" alt=""></a></div>
         <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html" class="active">Home</a></li>
             <li><a href="pages/stats.html">Standings</a></li>
             <li><a href="pages/players.html">Players</a></li>
             <li><a href="pages/matches.html">Matches</a></li>
@@ -27,9 +27,12 @@
         <aside class="side-bar">
             <div class="weather-update">
                 <h3>Weather Update</h3>
-                <p>London, UK - Friday, Oct 27</p>
-                <p id="degree"><i class="fa-solid fa-cloud-sun"></i> 14°C</p>
-                <p>Partly Cloudy</p>
+                <p class="weather-info"><span id="city"></span>, <span id="country"></span> - <span id="date"></span></p>
+                <div class="temp-row">
+                    <img id="icon" alt="Weather icon" src=""/>
+                    <p id="degree"></p>
+                </div>
+                <p id="description" class="weather-info"></p>
             </div>
             <div class="exchange-rates">
                 <h3>Exchange Rates</h3>
@@ -50,21 +53,19 @@
                     <span class="rate">0.0067</span>
                 </div>
             </div>
-            <div class="live-matches">
-                
-            </div>
 
 <div class="liveMatches">
 <p  class="color-faded headOfMatch">LIVE MATCHES</p>
 <div class="matches">
 <div class="match backfaded"> <img src="./imgs/Selection (13).png"> Aston - 3 VS 1 - chelsea - FT  <span class="LIVE"> LIVE</span></div>
 <div class="match backfaded"> <img src="./imgs/Selection (13).png"> Arsenal - 1 VS 4 - LFC - FT   <span class="LIVE"> LIVE</span></div>
-<div class="match backfaded"><img src="./imgs/Selection (13).png"> Real Madread - 5 VS 0 - barc   <span class="        LIVE"> LIVE</span></div>
+<div class="match backfaded"><img src="./imgs/Selection (13).png"> Real Madread - 5 VS 0 - barc   <span class="LIVE"> LIVE</span></div>
 <div class="match backfaded"><img src="./imgs/Selection (13).png"> Bayern - 2 VS  1 - Dortmund   <span class="LIVE"> LIVE</span></div>
 <div class="match backfaded"><img src="./imgs/Selection (13).png"> PSG VS Marseille - HT (4 - 0)</div>
 </div>
 
 </div>
+
 
 
 
@@ -273,5 +274,7 @@
             <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
         </ul>
     </footer>
+    <script src="scripts/main.js"></script>
+    <script src="scripts/script.js"></script>
 </body>
 </html>
