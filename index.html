@@ -12,7 +12,7 @@
     <nav class="navbar">
         <div id="logo"><a href="#"><img src="imgs/Selection.png" alt=""></a></div>
         <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html" class="active">Home</a></li>
             <li><a href="pages/stats.html">Standings</a></li>
             <li><a href="pages/players.html">Players</a></li>
             <li><a href="pages/matches.html">Matches</a></li>
@@ -27,9 +27,12 @@
         <aside class="side-bar">
             <div class="weather-update">
                 <h3>Weather Update</h3>
-                <p>London, UK - Friday, Oct 27</p>
-                <p id="degree"><i class="fa-solid fa-cloud-sun"></i> 14°C</p>
-                <p>Partly Cloudy</p>
+                <p class="weather-info"><span id="city"></span>, <span id="country"></span> - <span id="date"></span></p>
+                <div class="temp-row">
+                    <img id="icon" alt="Weather icon" src=""/>
+                    <p id="degree"></p>
+                </div>
+                <p id="description" class="weather-info"></p>
             </div>
             <div class="exchange-rates">
                 <h3>Exchange Rates</h3>
@@ -50,24 +53,16 @@
                     <span class="rate">0.0067</span>
                 </div>
             </div>
-            <div class="live-matches">
-                
+            <div class="liveMatches">
+                <p  class="color-faded headOfMatch">LIVE MATCHES</p>
+                <div class="matches">
+                    <div class="match backfaded"> <img src="./imgs/Selection (13).png"> Utd vs chelsea - FT <span>LIVE</span></div>
+                    <div class="match "> <img src="./imgs/Selection (13).png"> Arsenal vs Liverpool - FT</div>
+                    <div class="match backfaded"><img src="./imgs/Selection (13).png"> Real Madrid vs barc-<span>LIVE</span></div>
+                    <div class="match backfaded"><img src="./imgs/Selection (13).png"> Bayern vs Dortmund-<span>LIVE</span></div>
+                    <div class="match"><img src="./imgs/Selection (13).png"> PSG vs Marseille -HT(0-0)</div>
+                </div>
             </div>
-
-<div class="liveMatches">
-<p  class="color-faded headOfMatch">LIVE MATCHES</p>
-<div class="matches">
-<div class="match backfaded"> <img src="./imgs/Selection (13).png"> Utd vs chelsea - FT <span>LIVE</span></div>
-<div class="match "> <img src="./imgs/Selection (13).png"> Arsenal vs Liverpool - FT</div>
-<div class="match backfaded"><img src="./imgs/Selection (13).png"> Real Madrid vs barc-<span>LIVE</span></div>
-<div class="match backfaded"><img src="./imgs/Selection (13).png"> Bayern vs Dortmund-<span>LIVE</span></div>
-<div class="match"><img src="./imgs/Selection (13).png"> PSG vs Marseille -HT(0-0)</div>
-</div>
-
-</div>
-
-
-
         </aside>
         <div class="main">
             <header>
@@ -273,5 +268,6 @@
             <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
         </ul>
     </footer>
+    <script src="scripts/main.js"></script>
 </body>
 </html>
