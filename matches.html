@@ -57,27 +57,27 @@
     .match-card {
         background-color: #1e1e1e;
         border-radius: 12px;
+        border: 1px solid #333;
+        overflow: hidden;
+    }
+    .match-card-container {
         padding: 16px;
+
         display: flex;
         justify-content: space-between;
         align-items: center;
-        border: 1px solid #333;
-    }
+    } 
     
     .team {
+        display: flex;
+        flex-direction: column;
         flex: 1; /* Each team takes equal space */
         text-align: center;
         font-size: 16px;
         font-weight: 500;
+        align-items: center;
     }
-    
-    .team.home-team {
-        text-align: left;
-    }
-    
-    .team.away-team {
-        text-align: right;
-    }
+
     
     .match-info {
         display: flex;
@@ -91,6 +91,17 @@
         font-weight: bold;
         letter-spacing: 2px;
     }
+    .league-container {
+        display:flex;
+        flex-direction:column;
+        gap:5px;
+        align-items:center;
+        justify-content:center;
+        margin-bottom: 30px;
+    }
+    .league-container img {
+        max-width: 100%;
+    }
     
     .match-status {
         font-size: 12px;
@@ -99,7 +110,17 @@
         background-color: #333;
         padding: 2px 8px;
         border-radius: 8px;
-    }</style>
+    }
+    .league-description {
+        padding: 5px;
+        font-weight: bold;
+        font-size: 20px;
+    }
+    .team-img {
+        margin-bottom: 20px;
+        max-width: 70%;
+    }
+    </style>
 </head>
 <body>
     
@@ -129,55 +150,92 @@
 
     <script>
 // Wait for the HTML document to be fully loaded
-document.addEventListener('DOMContentLoaded', () => {
+ function formatDate(date) {
+  date = new Date(date)
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+}
+document.addEventListener('DOMContentLoaded', async() => {
+
+    const data = await (await fetch(`https://apiv2.allsportsapi.com/football/?met=Fixtures&APIkey=06b4fde147590190ce297cfbce977d4a422fbb11f9f9ad180a397a9065ac61e9&leagueId=152&from=${formatDate((new Date()) - 1000 * 60 * 60 * 24 * 30)}&to=${formatDate((new Date()))}`)).json()
+    const err = !data.success
+    console.log(err)
+    console.log(data)
 
     // Sample data for the matches. You could get this from an API later.
-    const matchesData = [
-        {
-            homeTeam: 'Team A',
-            awayTeam: 'Team B',
-            homeScore: 2,
-            awayScore: 1,
-            status: 'FT' // Full Time
-        },
-        {
-            homeTeam: 'Team C',
-            awayTeam: 'Team D',
-            homeScore: 0,
-            awayScore: 0,
-            status: "18:00" // Kick-off time
-        },
-        {
-            homeTeam: 'Team E',
-            awayTeam: 'Team F',
-            homeScore: 1,
-            awayScore: 1,
-            status: "LIVE" // Live match
-        }
-    ];
+    // const matchesData = [
+    //     {   league:"Premier League",
+    //         leagueLogo:"https://apiv2.allsportsapi.com/logo/logo_leagues/152_premier-league.png",
+    //         homeTeamLogo:"https://apiv2.allsportsapi.com/logo/3086_brentford.jpg",
+    //         awayTeamLogo:"https://apiv2.allsportsapi.com/logo/80_manchester-city.jpg",
 
+    //         leagueLogo:"https://apiv2.allsportsapi.com/logo/logo_leagues/152_premier-league.png",
+
+    //         homeTeam: 'Team A',
+    //         awayTeam: 'Team B',
+    //         homeScore: 2,
+    //         awayScore: 1,
+    //         status: 'FT' // Full Time
+    //     },
+    //     { league:"Premier League",
+    //       leagueLogo:"https://apiv2.allsportsapi.com/logo/logo_leagues/152_premier-league.png",
+
+    //         homeTeam: 'Team C',
+    //         awayTeam: 'Team D',
+    //         homeScore: 0,
+    //         awayScore: 0,
+    //         status: "18:00" // Kick-off time
+    //     },
+    //     { league:"Premier League",
+    //       leagueLogo:"https://apiv2.allsportsapi.com/logo/logo_leagues/152_premier-league.png",
+
+    //         homeTeam: 'Team E',
+    //         awayTeam: 'Team F',
+    //         homeScore: 1,
+    //         awayScore: 1,
+    //         status: "LIVE" // Live match
+    //     }
+    // ];
+    let MatchesDATA;
     // Find the container element in the HTML
     const matchesContainer = document.getElementById('matches-container');
+    if(!err){
+      MatchesDATA = data.result
 
+    }
     // Function to generate and display all match cards
     function renderMatches() {
         // Clear any existing content
         matchesContainer.innerHTML = '';
-
         // Loop through each match in our data array
-        matchesData.forEach(match => {
+
+        MatchesDATA.forEach(match => {
             // Create a new div element for the match card
+            const result = match.event_ft_result.split(" - ")
             const matchCard = document.createElement('div');
             matchCard.classList.add('match-card');
-
+            console.log(match)
             // Set the inner HTML of the card using the match data
             matchCard.innerHTML = `
-                <div class="team home-team">${match.homeTeam}</div>
+              <div class="league-container ">
+              <img src="${match.league_logo}"/>
+              <p class="league-description">${match.league_name}</p>
+              </div>
+              <div class="match-card-container">
+
+                <div class="team home-team">
+                <img class='team-img' src="${match.home_team_logo}"/>
+                ${match.event_home_team}</div>
                 <div class="match-info">
-                    <div class="score">${match.homeScore} : ${match.awayScore}</div>
-                    <div class="match-status">${match.status}</div>
+                    <div class="score">${result[0]} : ${result[1]}</div>
+                    <div class="match-status">FT</div>
                 </div>
-                <div class="team away-team">${match.awayTeam}</div>
+                <div class="team away-team">
+                <img class='team-img' src="${match.away_team_logo}"/>
+                ${match.event_away_team}</div>
+                </div>
             `;
 
             // Add the newly created card to the container
