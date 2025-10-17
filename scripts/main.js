@@ -1,5 +1,3 @@
-import dotenv from "dotenv";
-dotenv.config();
 
 const weatherApiKey = process.env.OPENWEATHER_KEY;
 const cityValue = document.getElementById("city");
@@ -60,3 +58,9 @@ function error() {
     descValue.innerText = "Cannot get weather data";
     iconValue.src = "";
 }
+
+const MatchApiKey = "9ec5b12edb686469492d6b94d5bd8c5ce037e408ee1ce80f9ea148a5b29642e4";
+const MatchPremierLeag = '152';
+const MatchApiUrl = 'https://apiv2.allsportsapi.com/football/?met=Fixtures&leagueId=${MatchPremierLeag}&APIkey=${MatchApiKey}';
+
+console.log(MatchApiUrl);

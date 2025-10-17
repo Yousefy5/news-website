@@ -300,3 +300,12 @@ header {
   cursor: pointer;
   transition: 0.3s;
 }
+.LIVE {
+  display: inline-block;
+  background-color: red;       
+  color: white;                
+  font-weight: bold;           
+  padding: 1px 7px;           
+  border-radius: 5px;         
+  font-family: Arial, sans-serif;
+}
