@@ -291,7 +291,7 @@ border-radius: 15px;
     color: white;
 }
 .politics {
-    background-color: #262A33 ;
+ 
 border-radius: 15px;
 }
 
@@ -312,7 +312,9 @@ border-radius: 15px;
     margin: 2rem;
     padding: 2rem;
 }
-
+.sports{
+        background-color: #262A33
+}
 /******************* side bar live matches *********/
 
 .match img {

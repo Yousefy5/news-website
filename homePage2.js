@@ -41,5 +41,4 @@ async function fetchNews(category) {
 
 window.addEventListener("DOMContentLoaded", () => {
   categories.forEach((cat) => fetchNews(cat));
-});
-
+})
