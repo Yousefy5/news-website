@@ -17,7 +17,7 @@
       </div>
       <ul class="nav-links">
         <li><a href="../index.html">Home</a></li>
-        <li><a href="stats.html" class="active">Standings</a></li>
+        <li><a href="stats.html">Standings</a></li>
         <li><a href="players.html">Players</a></li>
         <li><a href="matches.html">Matches</a></li>
       </ul>
@@ -58,7 +58,7 @@
         </div>
         <div class="top-players">
                 <h3>TOP PLAYERS</h3>
-                <div class="top-players-row">
+                <!-- <div class="top-players-row">
                     <span class="top-player">Mohamed Salah</span>
                     <span class="top-goal">29 GOAL</span>
                 </div>
@@ -77,7 +77,7 @@
                 <div class="top-players-row">
                     <span class="player">Chris Wood</span>
                     <span class="goal">20 GOAL</span>
-                </div>
+                </div> -->
             </div>
       </aside>
       
@@ -103,95 +103,22 @@
             </div>
             <br><br>
             <div class="standing-container">
-              <table class="standing-table">
-                <tr class="standing-main-row">
-                  <th class="standing-elements">Rank</th>
-                  <th class="standing-team">Team</th>
-                  <th class="standing-elements">Played</th>
-                  <th class="standing-elements">Wins</th>
-                  <th class="standing-elements">Draws</th>
-                  <th class="standing-elements">Losses</th>
-                  <th class="standing-elements">GF</th>
-                  <th class="standing-elements">GA</th>
-                  <th class="standing-elements">GD</th>
-                </tr>
-                <tr class="standing-rows">
-                  <td class="standing-elements">1</td>
-                  <td class="standing-team">Manchester City</td>
-                  <td class="standing-elements">38</td>
-                  <td class="standing-elements">28</td>
-                  <td class="standing-elements">7</td>
-                  <td class="standing-elements">3</td>
-                  <td class="standing-elements">96</td>
-                  <td class="standing-elements">43</td>
-                  <td class="standing-elements">62</td>
-                </tr>
-                <tr class="standing-rows">
-                  <td class="standing-elements">2</td>
-                  <td class="standing-team">Arsenal</td>
-                  <td class="standing-elements">38</td>
-                  <td class="standing-elements">27</td>
-                  <td class="standing-elements">5</td>
-                  <td class="standing-elements">6</td>
-                  <td class="standing-elements">91</td>
-                  <td class="standing-elements">29</td>
-                  <td class="standing-elements">62</td>
-                </tr>
-                <tr class="standing-rows">
-                  <td class="standing-elements">3</td>
-                  <td class="standing-team">Liverpool</td>
-                  <td class="standing-elements">38</td>
-                  <td class="standing-elements">24</td>
-                  <td class="standing-elements">10</td>
-                  <td class="standing-elements">4</td>
-                  <td class="standing-elements">86</td>
-                  <td class="standing-elements">41</td>
-                  <td class="standing-elements">45</td>
-                </tr>
-                <tr class="standing-rows">
-                  <td class="standing-elements">4</td>
-                  <td class="standing-team">Aston Villa</td>
-                  <td class="standing-elements">38</td>
-                  <td class="standing-elements">20</td>
-                  <td class="standing-elements">8</td>
-                  <td class="standing-elements">10</td>
-                  <td class="standing-elements">76</td>
-                  <td class="standing-elements">46</td>
-                  <td class="standing-elements">30</td>
-                </tr>
-                <tr class="standing-rows">
-                  <td class="standing-elements">5</td>
-                  <td class="standing-team">Tottenham Hotspur</td>
-                  <td class="standing-elements">38</td>
-                  <td class="standing-elements">20</td>
-                  <td class="standing-elements">6</td>
-                  <td class="standing-elements">12</td>
-                  <td class="standing-elements">74</td>
-                  <td class="standing-elements">74</td>
-                  <td class="standing-elements">13</td>
-                </tr>
-                <tr class="standing-rows">
-                  <td class="standing-elements">6</td>
-                  <td class="standing-team">Chelsea</td>
-                  <td class="standing-elements">38</td>
-                  <td class="standing-elements">18</td>
-                  <td class="standing-elements">9</td>
-                  <td class="standing-elements">11</td>
-                  <td class="standing-elements">77</td>
-                  <td class="standing-elements">63</td>
-                  <td class="standing-elements">14</td>
-                </tr>
-                <tr class="standing-rows">
-                  <td class="standing-elements">7</td>
-                  <td class="standing-team">Newcastle United</td>
-                  <td class="standing-elements">38</td>
-                  <td class="standing-elements">18</td>
-                  <td class="standing-elements">6</td>
-                  <td class="standing-elements">14</td>
-                  <td class="standing-elements">85</td>
-                  <td class="standing-elements">62</td>
-                  <td class="standing-elements">23</td>
-                </tr>
+              <table class="standing-table" id="standingsTable">
+                <thead>
+                    <tr class="standing-main-row">
+                    <th class="standing-elements">Rank</th>
+                    <th class="standing-team">Team</th>
+                    <th class="standing-elements">Played</th>
+                    <th class="standing-elements">Wins</th>
+                    <th class="standing-elements">Draws</th>
+                    <th class="standing-elements">Losses</th>
+                    <th class="standing-elements">GF</th>
+                    <th class="standing-elements">GA</th>
+                    <th class="standing-elements">GD</th>
+                    <th class="standing-elements">PTS</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
               </table>
             </div>
             
@@ -222,5 +149,8 @@
         </li>
       </ul>
     </footer>
+        <script src="../scripts/stats.js"></script>
+
   </body>
+  
 </html>
