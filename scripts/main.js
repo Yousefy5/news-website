@@ -1,4 +1,3 @@
-
 const weatherApiKey = process.env.OPENWEATHER_KEY;
 const cityValue = document.getElementById("city");
 const countryValue = document.getElementById("country")
